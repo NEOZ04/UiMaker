@@ -1,0 +1,44 @@
+This plugin was made by NEOZ04
+Github page: https://github.com/neoz04/UiMaker
+
+If you found a bug, please let me know! Submit new issue on GitHub
+
+How to make the ui:
+- open file uis.yml in plugin folder
+- and you can write you own ui like:
+	Modal Ui:
+	ExampleModalUi:
+		type: 0
+		contents:
+			title: Ui Title
+			content: Example text content!
+			button1: Button name
+			button2: Button name
+		commands:
+			button1: %CMD::teleport 0 0 0
+			button2: %SM::message
+	
+	Simple Ui:
+	ExampleSimpleUi:
+		type: 1
+		contents:
+			title: Ui Title
+			buttons:
+				- Button name
+				- Button 1
+				- Button 2
+				- More button
+		commands:
+			- %CMD::say hello world
+			- %SM::hallo {PLAYER}
+			- %OPEN::ExampleModalUi
+
+Notes:
+- type = Type of ui (Modal Ui: 0, Simple Ui = 1)
+- {PLAYER} = Player name
+- %CMD:: = command line (not '/')
+- %SM:: = send message
+- %OPEN:: = open the ui
+- You must have a FormAPI plugin to use this plugin!
+
+Good luck!

@@ -1,0 +1,32 @@
+# ModalUi = 0, SimpleUi = 1
+# %PLAYER = Player name
+# %PLAYER::u = Player name to uppercase
+# %PLAYER::l = Player name to lowercase
+#
+# Example: 
+ModalUi:
+  type: 0
+  contents:
+    title: 'ModalUi'
+    content: 'Please click any button!'
+    button1: 'Button1'
+    button2: 'Button2'
+  commands:
+    button1: '%CMD::say Hallo World'
+    button2: '%OPEN::SimpleUi'
+SimpleUi:
+  type: 1
+  contents:
+    title: 'SimpleUi'
+    buttons:
+      - Button 1
+      - Button 2
+      - Button 3
+      - Button 4
+      - Open Modal Ui
+  commands:
+    - '%SM:: Hallo World'
+    - '%CMD::say hallo %PLAYER'
+    - '%CMD::say hallo %PLAYER::u'
+    - '%CMD::say hallo %PLAYER::l'
+    - '%OPEN::ModalUi'
