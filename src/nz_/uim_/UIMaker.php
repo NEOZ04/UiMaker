@@ -2,10 +2,10 @@
 
 namespace nz_\uim_;
 
-use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Config;
 use pocketmine\item\Item;
+use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
+use pocketmine\plugin\PluginBase;
 
 class UIMaker extends PluginBase {
     
@@ -25,7 +25,7 @@ class UIMaker extends PluginBase {
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return true;
         }
-        $item = Item::get($this->getConfig()->get("item-to-open"))->setCustomName($this->getConfig()->get("item-name"));
+        $item = Item::get($this->getConfig()->get("item-to-open"))->setCustomName(TextFormat::colorize($this->getConfig()->get("item-name")));
         Item::addCreativeItem($item);
         $this->item = $item;
         
@@ -82,6 +82,33 @@ class UIMaker extends PluginBase {
             }
         }
         
+    }
+    
+    public function Translate(String $string) {
+        $string = str_replace("", "&", $string);
+        $string = str_replace("&0", TextFormat::BLACK, $string);
+        $string = str_replace("&1", TextFormat::DARK_BLUE, $string);
+        $string = str_replace("&2", TextFormat::DARK_GREEN, $string);
+        $string = str_replace("&3", TextFormat::DARK_AQUA, $string);
+        $string = str_replace("&4", TextFormat::DARK_RED, $string);
+        $string = str_replace("&5", TextFormat::DARK_PURPLE, $string);
+        $string = str_replace("&6", TextFormat::GOLD, $string);
+        $string = str_replace("&7", TextFormat::GRAY, $string);
+        $string = str_replace("&8", TextFormat::DARK_GRAY, $string);
+        $string = str_replace("&9", TextFormat::BLUE, $string);
+        $string = str_replace("&a", TextFormat::GREEN, $string);
+        $string = str_replace("&b", TextFormat::AQUA, $string);
+        $string = str_replace("&c", TextFormat::RED, $string);
+        $string = str_replace("&d", TextFormat::LIGHT_PURPLE, $string);
+        $string = str_replace("&e", TextFormat::YELLOW, $string);
+        $string = str_replace("&f", TextFormat::WHITE, $string);
+        $string = str_replace("&k", TextFormat::OBFUSCATED, $string);
+        $string = str_replace("&l", TextFormat::BOLD, $string);
+        $string = str_replace("&m", TextFormat::STRIKETHROUGH, $string);
+        $string = str_replace("&n", TextFormat::UNDERLINE, $string);
+        $string = str_replace("&o", TextFormat::ITALIC, $string);
+        $string = str_replace("&r", TextFormat::RESET, $string);
+        return $string;
     }
     
 }

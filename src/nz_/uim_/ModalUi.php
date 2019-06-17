@@ -58,8 +58,8 @@ class ModalUi extends Ui {
         });
         $ui->setTitle(TextFormat::colorize($this->getTitle()));
         $ui->setContent($this->getContent());
-        $ui->setButton1($this->getButton1());
-        $ui->setButton2($this->getButton2());
+        $ui->setButton1(TextFormat::colorize($this->getButton1()));
+        $ui->setButton2(TextFormat::colorize($this->getButton2()));
         $ui->sendToPlayer($p);
     }
     
