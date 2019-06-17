@@ -34,7 +34,7 @@ class UIMaker extends PluginBase {
         $this->getServer()->getLogger()->info(TextFormat::colorize("&a=> &eThank you for install my plugin"));
         $this->getServer()->getLogger()->info(TextFormat::colorize("&a=> &efind the instruction in the plugin folder"));
         $this->getServer()->getLogger()->info(TextFormat::colorize("&a=> &eIf you found a bug, please let me know! Submit new issue on GitHub"));
-        $this->getServer()->getLogger()->info(TextFormat::colorize("&a=> &eGithub: www.github.com/neoz04/UiMaker"));
+        $this->getServer()->getLogger()->info(TextFormat::colorize("&a=> &eGithub: www.github.com/NEOZ04/UiMaker"));
         $this->getServer()->getLogger()->info(TextFormat::colorize("&a=> &eInstagram: neoz4_"));
         $this->getServer()->getLogger()->info(TextFormat::colorize("&a=> &ePlugin has been enable..."));
         $this->getServer()->getLogger()->info(TextFormat::colorize("&b+----------------------------+"));

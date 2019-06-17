@@ -66,9 +66,10 @@ abstract class Ui {
         $world = $p->getLevel()->getName();
         $name = $p->getName();
         
-        $string = str_replace("%PLAYER", $name, $string);
         $string = str_replace("%PLAYER::l", strtolower($name), $string);
         $string = str_replace("%PLAYER::u", strtoupper($name), $string);
+        $string = str_replace("%PLAYER", $name, $string);
+        $string = str_replace("\n", PHP_EOL, $string);
         $string = TextFormat::colorize($string);
         
         return $string;
