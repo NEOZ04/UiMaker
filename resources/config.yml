@@ -1,3 +1,40 @@
-item-to-open: 399
-item-name: "ExampleUi"
-default-ui: SimpleUi
+# Find file instruction to learn make the ui
+app: 399
+app-name: "ExampleUi"
+default-ui: 'Example2'
+
+Example1:
+  type: 0
+  contents:
+    title: 'Example Modal Ui'
+    content: 'Example content...'
+    button1: 'Message Hallo World'
+    button2: 'Back to Button Ui'
+  commands:
+    button1: '%CMD::say Hallo World'
+    button2: '%OPEN::Example2'
+Example2:
+  type: 1
+  contents:
+    title: 'Example Button Ui'
+    buttons:
+      - 'Server Message Hallo %PLAYER'
+      - 'Message Hallo %PLAYER'
+      - 'Message Hallo &l%PLAYER'
+      - 'Message Hallo %PLAYER::u'
+      - 'Message Hallo %PLAYER::l'
+      - 'Open Modal Ui'
+      - 'Open Info Ui'
+  commands:
+  - '%CMD::say Hallo %PLAYER'
+  - '%SM::Hallo %PLAYER'
+  - '%SM::Hallo &l%PLAYER'
+  - '%SM::Hallo %PLAYER::u'
+  - '%SM::Hallo %PLAYER::l'
+  - '%OPEN::Example1'
+  - '%OPEN::Example3'
+Example3:
+  type: 2
+  contents:
+    title: 'Example Info Ui'
+    content: '&f&lUiMaker&r v1.3 \n Creator By NEOZ04'

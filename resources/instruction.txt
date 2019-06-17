@@ -3,33 +3,62 @@ Github page: https://github.com/neoz04/UiMaker
 
 If you found a bug, please let me know! Submit new issue on GitHub
 
+Configuration:
+app: 399 <= id item, for open the default ui
+app-name: 'ExampleUi' <= name of app
+default-ui: 'SimpleUi' <= name ui 
+
 How to make the ui:
-- open file uis.yml in plugin folder
+- open file config.yml in plugin folder
 - and you can write you own ui like:
-	
-	Simple Ui:
-	ExampleSimpleUi:
-		type: 1
-		contents:
-			title: 'Ui Title'
-			buttons:
-				- 'Button name'
-				- 'Button 1'
-				- 'Button 2'
-				- 'More button'
-		commands:
-			- '%CMD::say hello world'
-			- '%SM::hallo %PLAYER'
-			- '%OPEN::ExampleModalUi'
+	Example1:
+	  type: 0
+	  contents:
+	    title: 'Example Modal Ui'
+	    content: 'Example content...'
+	    button1: 'Message Hallo World'
+	    button2: 'Back to Button Ui'
+	  commands:
+	    button1: '%CMD::say Hallo World'
+	    button2: '%OPEN::Example2'
+	Example2:
+	  type: 1
+	  contents:
+	    title: 'Example Button Ui'
+	    buttons:
+	      - 'Server Message Hallo %PLAYER'
+	      - 'Message Hallo %PLAYER'
+	      - 'Message Hallo &l%PLAYER'
+	      - 'Message Hallo %PLAYER::u'
+	      - 'Message Hallo %PLAYER::l'
+	      - 'Open Modal Ui'
+	      - 'Open Info Ui'
+	  commands:
+	  - '%CMD::say Hallo %PLAYER'
+	  - '%SM::Hallo %PLAYER'
+	  - '%SM::Hallo &l%PLAYER'
+	  - '%SM::Hallo %PLAYER::u'
+	  - '%SM::Hallo %PLAYER::l'
+	  - '%OPEN::Example1'
+	  - '%OPEN::Example3'
+	Example3:
+	  type: 2
+	  contents:
+	    title: 'Example Info Ui'
+	    content: '&f&lUiMaker&r v1.3 \n Creator By NEOZ04'
 
 Notes:
-- type = Type of ui (Modal Ui: 0, Simple Ui = 1)
+- type = Type of ui (Modal Ui: 0, Button Ui = 1, Info Ui = 2)
 - %PLAYER = Player name
 - %PLAYER::l = Player name lowercase
 - %PLAYER::u = Player name uppercase
 - %CMD:: = command line (not '/')
 - %SM:: = send message
 - %OPEN:: = open the ui
+- \n = make a new line or new label
+- for style text, you can use =>
+	^ &0: Black, &1: Dark Blue, &2: Dark Green, &3: Dark Aqua, &4: Dark Red, &5: Dark Purple, &6: Gold, &7: Gray, &8: Dark Gray, &9: Blue
+	^ &a: Green, &b: Aqua, &c: Red, &d: Light Purple, &e: Yellow, &f: White
+	^ &k: Obfuscated, &l: Bold, &m: Strikethrough, &n: Underline, &o: Italic, &r: Reset
 - You must have a FormAPI plugin to use this plugin!
-
 Good luck!

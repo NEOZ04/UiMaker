@@ -13,17 +13,17 @@ class ModalUi extends Ui {
     
     public function getContent(){
         $c = $this->getContents();
-        return (isset($c["content"])) ? TextFormat::colorize($c["content"]) : null;
+        return (isset($c["content"])) ? TextFormat::colorize($c["content"]) : "contens?";
     }
     
     public function getButton1(){
         $c = $this->getContents();
-        return (isset($c["button1"])) ? TextFormat::colorize($c["button1"]) : null;
+        return (isset($c["button1"])) ? TextFormat::colorize($c["button1"]) : "Button1";
     }
     
     public function getButton2(){
         $c = $this->getContents();
-        return (isset($c["button2"])) ? TextFormat::colorize($c["button2"]) : null;
+        return (isset($c["button2"])) ? TextFormat::colorize($c["button2"]) : "Button2";
     }
     
     private function check(){
@@ -40,10 +40,6 @@ class ModalUi extends Ui {
     }
     
     public function getUi(Player $p){
-        if (!$this->check()){
-            $p->sendMessage(TextFormat::colorize("&cForm belum lengkap"));
-            return true;
-        }
         $ui = $this->getApi()->createModalForm(function (Player $p, $data){
             if ($data === null){
                 return true;
@@ -56,10 +52,10 @@ class ModalUi extends Ui {
                 $this->SendCommand($p, $cmd);
             }
         });
-        $ui->setTitle(TextFormat::colorize($this->getTitle()));
-        $ui->setContent($this->getContent());
-        $ui->setButton1(TextFormat::colorize($this->getButton1()));
-        $ui->setButton2(TextFormat::colorize($this->getButton2()));
+        $ui->setTitle($this->translate($p, $this->getTitle()));
+        $ui->setContent($this->translate($p, $this->getContent()));
+        $ui->setButton1($this->translate($p, $this->getButton1()));
+        $ui->setButton2($this->translate($p, $this->getButton2()));
         $ui->sendToPlayer($p);
     }
     

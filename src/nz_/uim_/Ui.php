@@ -40,7 +40,7 @@ abstract class Ui {
     
     public function getTitle(){
         $c = $this->getContents();
-        return (isset($c["title"])) ? $c["title"] : "Ui Maker by NEOZ04";
+        return (isset($c["title"])) ? $c["title"] : "&l&aUiMaker&fNEOZ04";
     }
     
     public function SendCommand(Player $p, $cmd){
@@ -61,7 +61,7 @@ abstract class Ui {
     
     abstract public function getUi(Player $p);
     
-    private function translate(Player $p, $string){
+    public function translate(Player $p, $string){
         
         $world = $p->getLevel()->getName();
         $name = $p->getName();
@@ -69,7 +69,7 @@ abstract class Ui {
         $string = str_replace("%PLAYER::l", strtolower($name), $string);
         $string = str_replace("%PLAYER::u", strtoupper($name), $string);
         $string = str_replace("%PLAYER", $name, $string);
-        $string = str_replace("\n", PHP_EOL, $string);
+        $string = trim($string);
         $string = TextFormat::colorize($string);
         
         return $string;

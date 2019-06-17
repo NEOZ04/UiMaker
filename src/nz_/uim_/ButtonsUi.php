@@ -5,7 +5,7 @@ namespace nz_\uim_;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
-class SimpleUi extends Ui {
+class ButtonsUi extends Ui {
     
     public function __construct(String $name){
         parent::__construct($name);
@@ -26,10 +26,15 @@ class SimpleUi extends Ui {
                 return true;
             }
         });
-        $ui->setTitle(TextFormat::colorize($this->getTitle()));
+        $ui->setTitle($this->translate($p, $this->getTitle()));
+        $i=1;
         if (!empty($this->getButtons())){
             foreach ($this->getButtons() as $name){
-                $ui->addButton(TextFormat::colorize($name));
+                if (is_null($name)){
+                    $name = "&l&cButton ".$i;
+                    $i++;
+                }
+                $ui->addButton($this->translate($p, $name));
             }
         }else{
             $ui->addButton(TextFormat::colorize("&l&cCLOSE"));

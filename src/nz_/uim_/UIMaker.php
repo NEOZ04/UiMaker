@@ -16,7 +16,6 @@ class UIMaker extends PluginBase {
     public function onEnable() {
         
         $this->saveDefaultConfig();
-        $this->saveResource("uis.yml");
         $this->saveResource("instruction.txt", true);
         
         $fapi = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
@@ -25,7 +24,7 @@ class UIMaker extends PluginBase {
             $this->getServer()->getPluginManager()->disablePlugin($this);
             return true;
         }
-        $item = Item::get($this->getConfig()->get("item-to-open"))->setCustomName(TextFormat::colorize($this->getConfig()->get("item-name")));
+        $item = Item::get($this->getConfig()->get("app"))->setCustomName(TextFormat::colorize($this->getConfig()->get("app-name")));
         Item::addCreativeItem($item);
         $this->item = $item;
         
@@ -52,8 +51,12 @@ class UIMaker extends PluginBase {
         return new Config($this->getDataFolder()."uis.yml");
     }
     
-    private function loadUi(){
-        $this->uis = $this->getUiConfig()->getAll();
+    private function loadUi(){ 
+        $uis = $this->getConfig()->getAll();
+        unset($uis["app"]);
+        unset($uis["app-name"]);
+        unset($uis["default-ui"]);
+        $this->uis = $uis;
         return true;
     }
     
@@ -76,39 +79,15 @@ class UIMaker extends PluginBase {
                         return new ModalUi($name);
                         break;
                     case 1:
-                        return new SimpleUi($name);
+                        return new ButtonUi($name);
+                        break;
+                    case 2:
+                        return new InfoUi($name);
                         break;
                 }
             }
         }
         
-    }
-    
-    public function Translate(String $string) {
-        $string = str_replace("", "&", $string);
-        $string = str_replace("&0", TextFormat::BLACK, $string);
-        $string = str_replace("&1", TextFormat::DARK_BLUE, $string);
-        $string = str_replace("&2", TextFormat::DARK_GREEN, $string);
-        $string = str_replace("&3", TextFormat::DARK_AQUA, $string);
-        $string = str_replace("&4", TextFormat::DARK_RED, $string);
-        $string = str_replace("&5", TextFormat::DARK_PURPLE, $string);
-        $string = str_replace("&6", TextFormat::GOLD, $string);
-        $string = str_replace("&7", TextFormat::GRAY, $string);
-        $string = str_replace("&8", TextFormat::DARK_GRAY, $string);
-        $string = str_replace("&9", TextFormat::BLUE, $string);
-        $string = str_replace("&a", TextFormat::GREEN, $string);
-        $string = str_replace("&b", TextFormat::AQUA, $string);
-        $string = str_replace("&c", TextFormat::RED, $string);
-        $string = str_replace("&d", TextFormat::LIGHT_PURPLE, $string);
-        $string = str_replace("&e", TextFormat::YELLOW, $string);
-        $string = str_replace("&f", TextFormat::WHITE, $string);
-        $string = str_replace("&k", TextFormat::OBFUSCATED, $string);
-        $string = str_replace("&l", TextFormat::BOLD, $string);
-        $string = str_replace("&m", TextFormat::STRIKETHROUGH, $string);
-        $string = str_replace("&n", TextFormat::UNDERLINE, $string);
-        $string = str_replace("&o", TextFormat::ITALIC, $string);
-        $string = str_replace("&r", TextFormat::RESET, $string);
-        return $string;
     }
     
 }
