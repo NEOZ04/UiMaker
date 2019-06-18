@@ -1,4 +1,4 @@
-name: UiMaker
+name: UIMaker
 main: nz_\uim_\UIMaker
 version: 1.3.0
 api: [3.0.0,4.0.0]
