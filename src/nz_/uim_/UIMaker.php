@@ -79,7 +79,7 @@ class UIMaker extends PluginBase {
                         return new ModalUi($name);
                         break;
                     case 1:
-                        return new ButtonUi($name);
+                        return new ButtonsUi($name);
                         break;
                     case 2:
                         return new InfoUi($name);

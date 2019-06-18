@@ -1,8 +1,12 @@
 # UiMaker
-Make ui is easy with UiMaker. Download phar [here](http://bit.ly/2ZtSfp5)
+Make ui is easy with UiMaker. Download phar [here](http://bit.ly/31HDm4m)
 ## NOTE
 This plugin is designed for **PocketMine-MP** only and we do not support any other variations, forks or spoons. Compatibility with unofficial variants can occasionally be found, but **do not expect support if you are using anything other than PocketMine-MP.**
 ## Update Release
+<h3>UiMaker v1.3.1</h3>
+<ul>
+    <li>Fix bugs</li>
+</ul>
 <h3>UiMaker v1.3.0</h3>
 <ul>
     <li>Fix bugs</li>
