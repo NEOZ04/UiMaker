@@ -1,7 +1,9 @@
 # UiMaker
-Make ui is easy with UiMaker. Download phar [here](http://bit.ly/31HDm4m)
-## NOTE
-This plugin is designed for **PocketMine-MP** only and we do not support any other variations, forks or spoons. Compatibility with unofficial variants can occasionally be found, but **do not expect support if you are using anything other than PocketMine-MP.**
+Make ui is easy with UiMaker, Download latest plugin [here](http://bit.ly/31HDm4m).<br><br>
+This plugin is designed for **PocketMine-MP** only and we do not support any other variations, forks or spoons. Compatibility with unofficial variants can occasionally be found, but **do not expect support if you are using anything other than PocketMine-MP.**<br>
+<br>
+**See** [Instruction](https://github.com/NEOZ04/UiMaker/blob/master/resources/instruction.txt).
+
 ## Update Release
 <h3>UiMaker v1.3.1</h3>
 <ul>
