@@ -3,6 +3,6 @@ branches:
 - master
 projects:
   UiMaker:
-    path: "UiMaker"
+    path: ""
     icon: "icon.png"
 ...
